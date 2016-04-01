@@ -1,6 +1,16 @@
 {{#if goals}}
   <h1>Here are some goals!</h1>
+  Discretionary Funds Per Month: {{input placeholder=0}}
   {{#each goals as |goal| }}
-    {{goal.targetDeadline}}
+    <p>----------------------------</p>
+    <p>Goal: {{goal.name}}</p>
+    When do you want to reach your goal?
+    <br/>
+    {{input placeholder=goal.months}} Months
+    <br/>
+    <br/>
+    How much do you need?
+    <br/>
+    {{input placeholder=goal.amount}}
   {{/each}}
 {{/if}}

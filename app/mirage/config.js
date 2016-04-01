@@ -5,17 +5,17 @@ export default function() {
         type: 'goals',
         id: 1,
         attributes: {
-          'disposable-income-per-month': 100,
-          'target-amount': 0,
-          'target-deadline': '2017'
+          'name': 'Emergency Fund',
+          'amount': 100,
+          'months': 6
         }
       }, {
         type: 'goals',
         id: 2,
         attributes: {
-          'disposable-income-per-month': 200,
-          'target-amount': 0,
-          'target-deadline': '2018'
+          'name': 'Education Fund',
+          'amount': 200,
+          'months': 24
         }
       }]
     };

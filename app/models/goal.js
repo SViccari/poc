@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  disposableIncomePerMonth: DS.attr('number'),
-  targetAmount: DS.attr('number'),
-  targetDeadline: DS.attr('string'),
+  name: DS.attr('string'),
+  amount: DS.attr('number'),
+  months: DS.attr('number')
 });
