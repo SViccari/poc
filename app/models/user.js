@@ -1,7 +1,13 @@
 import DS from 'ember-data';
 
-export default DS.Model.extend({
-  goals: DS.hasMany('goal', { async: false}),
+const {
+  Model,
+  hasMany,
+  attr,
+} = DS;
+
+export default Model.extend({
+  goals: hasMany('goals', { async: true }),
   
-  monthlyDisposableIncome: DS.attr('number'),
+  monthlyDisposableIncome: attr('number')
 });

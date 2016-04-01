@@ -8,8 +8,7 @@ export default Ember.Route.extend({
     });
   },
 
-  setupController(controller, model) {
-   Ember.set(controller, 'goals', model.goals);
-   Ember.set(controller, 'user', model.user);
+  setupController(controller, models) {
+    Ember.setProperties(controller, models);
   }
 });

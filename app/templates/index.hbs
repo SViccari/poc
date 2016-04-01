@@ -4,13 +4,16 @@
   {{#each goals as |goal| }}
     <p>----------------------------</p>
     <p>Goal: {{goal.name}}</p>
-    When do you want to reach your goal?
-    <br/>
-    {{input placeholder=goal.months}} Months
-    <br/>
-    <br/>
-    How much do you need?
-    <br/>
-    {{input placeholder=goal.amount}}
+    <p>
+      When do you want to reach your goal?
+      {{input placeholder=goal.months}} Months
+    </p>
+    <p>
+      How much do you need?
+      {{input placeholder=goal.amount}}
+    </p>
+    <p>
+      Calculated Cost Per Month: {{goal.monthlyCost}}
+    </p>
   {{/each}}
 {{/if}}
