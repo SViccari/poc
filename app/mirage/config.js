@@ -1,50 +1,30 @@
 export default function() {
-  this.get('users/:id', function() {
+  this.get('/users/:id', function(db, request) {
+    const attrs = db.users.find(request.params.id);
+    
     return {
-      data: {
+      data: { 
         type: 'users',
-        id: 1,
-        attributes: {
-          'monthly-disposable-income': 250,
-        }
+        id: attrs.id,
+        attributes: attrs,
       }
-    }
+    };
   });
-  this.get('goals', function() {
+
+  this.get('/goals', function(db) {
     return {
-      data: [{
-        type: 'goals',
-        id: 1,
-        attributes: {
-          'name': 'Emergency Fund',
-          'amount': 100,
-          'months': 6
-        }
-      }, {
-        type: 'goals',
-        id: 2,
-        attributes: {
-          'name': 'Education Fund',
-          'amount': 200,
-          'months': 24
-        },
-        relationships: {
-          'users': {
-            data: [
-              { type: 'users', id: '1' }
-            ]
+      data: db.goals.map(attrs => (
+        { 
+          type: 'goals',
+          id: attrs.id,
+          attributes: attrs,
+          relationships: {
+            user: {
+              data: { type: 'users', id: attrs.user }
+            }
           }
         }
-      }],
-      included: [
-        {
-          type: 'users',
-          id: '1',
-          attributes: {
-            'monthly-disposable-income': 250,
-          }
-        }
-      ]
+      ))
     };
   });
 }
