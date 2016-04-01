@@ -1,4 +1,15 @@
 export default function() {
+  this.get('users/:id', function() {
+    return {
+      data: {
+        type: 'users',
+        id: 1,
+        attributes: {
+          'monthly-disposable-income': 250,
+        }
+      }
+    }
+  });
   this.get('goals', function() {
     return {
       data: [{
@@ -16,8 +27,24 @@ export default function() {
           'name': 'Education Fund',
           'amount': 200,
           'months': 24
+        },
+        relationships: {
+          'users': {
+            data: [
+              { type: 'users', id: '1' }
+            ]
+          }
         }
-      }]
+      }],
+      included: [
+        {
+          type: 'users',
+          id: '1',
+          attributes: {
+            'monthly-disposable-income': 250,
+          }
+        }
+      ]
     };
   });
 }
