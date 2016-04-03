@@ -21,7 +21,9 @@ export default Model.extend({
 
   monthlyCost: computed('user', 'amount', 'months', {
     get() {
-      return get(this, 'user.monthlyDisposableIncome');
+      const amount = get(this, 'amount');
+      const months = get(this, 'months');
+      return (amount / months).toFixed(2);
     }
   })
 });

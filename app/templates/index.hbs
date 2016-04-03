@@ -1,19 +1,3 @@
-{{#if goals}}
-  <h1>Here are some goals!</h1>
-  Discretionary Funds Per Month: {{input placeholder=user.monthlyDisposableIncome}}
-  {{#each goals as |goal| }}
-    <p>----------------------------</p>
-    <p>Goal: {{goal.name}}</p>
-    <p>
-      When do you want to reach your goal?
-      {{input placeholder=goal.months}} Months
-    </p>
-    <p>
-      How much do you need?
-      {{input placeholder=goal.amount}}
-    </p>
-    <p>
-      Calculated Cost Per Month: {{goal.monthlyCost}}
-    </p>
-  {{/each}}
-{{/if}}
+<div class="main">
+  {{financial-goals user=user goals=goals}}
+</div>
