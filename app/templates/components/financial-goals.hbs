@@ -1,24 +1,22 @@
-<div>
+<div class="card">
   Monthly discretionary income: ${{input type="text" value=user.monthlyDisposableIncome}}
 </div>
 {{#each goals as |goal| }}
-  <div>
-    <p>
+  <div class="card">
+    <div class="goal-title">
       {{goal.name}}
-    </p>
+    </div>
     <p>
       In {{input type="text" value=goal.months}} months,
       I would like to have ${{input type="text" value=goal.amount}}.
     </p>
-    <p>
-      Cost Per Month: ${{goal.monthlyCost}}
-    </p>
+    <p>Cost Per Month: ${{goal.monthlyCost}}</p>
   </div>
 {{/each}}
 
-<div>
+<div class="card">
   {{#if overSpent}}
-    <div>
+    <div class="warning">
       <p>Warning: You don't not have enough discretionary income</p>
     </div>
   {{/if}}
