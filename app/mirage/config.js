@@ -1,23 +1,30 @@
 export default function() {
-  this.get('goals', function() {
+  this.get('/users/:id', function(db, request) {
+    const attrs = db.users.find(request.params.id);
+    
     return {
-      data: [{
-        type: 'goals',
-        id: 1,
-        attributes: {
-          'disposable-income-per-month': 100,
-          'target-amount': 0,
-          'target-deadline': '2017'
+      data: { 
+        type: 'users',
+        id: attrs.id,
+        attributes: attrs,
+      }
+    };
+  });
+
+  this.get('/goals', function(db) {
+    return {
+      data: db.goals.map(attrs => (
+        { 
+          type: 'goals',
+          id: attrs.id,
+          attributes: attrs,
+          relationships: {
+            user: {
+              data: { type: 'users', id: attrs.user }
+            }
+          }
         }
-      }, {
-        type: 'goals',
-        id: 2,
-        attributes: {
-          'disposable-income-per-month': 200,
-          'target-amount': 0,
-          'target-deadline': '2018'
-        }
-      }]
+      ))
     };
   });
 }

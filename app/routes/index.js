@@ -2,10 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('goal');
+    return Ember.RSVP.hash({
+      goals: this.store.findAll('goal'),
+      user: this.store.findRecord('user', '1'),
+    });
   },
 
-  setupController(controller, model) {
-    Ember.set(controller, 'goals', model);
+  setupController(controller, models) {
+    Ember.setProperties(controller, models);
   }
 });

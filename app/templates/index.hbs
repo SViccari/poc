@@ -1,6 +1,3 @@
-{{#if goals}}
-  <h1>Here are some goals!</h1>
-  {{#each goals as |goal| }}
-    {{goal.targetDeadline}}
-  {{/each}}
-{{/if}}
+<div class="main">
+  {{financial-goals user=user goals=goals}}
+</div>

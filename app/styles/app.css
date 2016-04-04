@@ -1,0 +1,33 @@
+body {
+  background-color: WhiteSmoke;
+}
+.main {
+  margin: 0 auto;
+  width: 800px;
+}
+.card {
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px #aaa;
+  margin: 20px auto;
+  padding: 40px;
+  width: 400px;
+}
+.goal-title {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.warning {
+  color: red;
+}
+.ember-text-field {
+  border: none;
+  border-bottom: 2px solid black;
+  color: #7de0b0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  width: 80px;
+}
